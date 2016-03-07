@@ -96,7 +96,7 @@ function vcs_prompt_info() {
 }
 # end VCS
 
-OK="🙆 "
+OK="🍺 "
 NG="💩 "
 
 PROMPT=""
