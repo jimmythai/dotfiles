@@ -75,7 +75,6 @@ ca th tabp
 " make a new tab
 ca tn tabnew
 
-
 """""""""""""""""""""""""""""""""""""""
 " NeoBundle
 """""""""""""""""""""""""""""""""""""""
@@ -244,10 +243,11 @@ function! s:my_cr_function()
 endfunction
 " <TAB>: completion.
 " <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><CR>   pumvisible() ? "\<C-n>" . neocomplete#close_popup()  : "<CR>"
+inoremap <expr> <CR> pumvisible() ? neocomplete#close_popup() : "\<CR>"
+" inoremap <expr><CR>   pumvisible() ? "\<C-n>" . neocomplete#close_popup()  : "<CR>"
 " Close popup by <Space>.
 "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
@@ -256,7 +256,7 @@ inoremap <expr><CR>   pumvisible() ? "\<C-n>" . neocomplete#close_popup()  : "<C
 
 " Shell like behavior(not recommended).
 "set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
+let g:neocomplete#enable_auto_select = 1
 "let g:neocomplete#disable_auto_complete = 1
 "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
@@ -295,7 +295,7 @@ set statusline+=%{fugitive#statusline()}
 " Auto-pairs
 """""""""""""""""""""""""""""""""""""""
 NeoBundle 'jiangmiao/auto-pairs'
-let g:AutoPairsFlyMode = 1
+let g:AutoPairsFlyMode = 0
 
 
 """""""""""""""""""""""""""""""""""""""
