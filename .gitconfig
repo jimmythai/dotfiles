@@ -8,3 +8,5 @@
   name = AUTHORNAME
   email = AUTHOREMAIL
 [alias]
+[push]
+  default = current
