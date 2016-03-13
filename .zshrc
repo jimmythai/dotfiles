@@ -109,11 +109,10 @@ PROMPT+="%% "
 
 RPROMPT="[%*]"
 
-# -------------------------------------
-# エイリアス
-# -------------------------------------
-
-# -n 行数表示, -I バイナリファイル無視, svn関係のファイルを無視
+# ----------------------
+# Command line Aliases
+# ----------------------
+# -n [show line number], -I [ignore binary files and ignore svn relation]
 alias grep="grep --color -n -I --exclude='*.svn-*' --exclude='entries' --exclude='*/cache/*'"
 
 # ls
@@ -122,20 +121,109 @@ alias l="ls -la"
 alias la="ls -la"
 alias l1="ls -1"
 
-# tree
-alias tree="tree -NC" # N: 文字化け対策, C:色をつける
-alias t="tree"
-alias tl="t -L" # show files in a level
-alias ta="t -a" # show dotfiles
-alias tp="t -f" # show relative paths
-alias ts="t -h" # show file size
+# ----------------------
+# Tree Aliases
+# ----------------------
+# -N [prevent from garbage characters and color files]
+alias t="tree -NC"
+
+# show files in a level
+alias tl="t -L"
+
+# show dotfiles
+alias ta="t -a"
+
+# show relative paths
+alias tp="t -f"
+
+# show file size
+alias ts="t -h"
+
 alias tla="ta -L"
 alias tlp="tp -L"
 alias tls="ts -L"
 alias tt="tl 1"
 alias tta="tla 1"
+
+
+# ----------------------
+# Git Aliases
+# ----------------------
 # git
 alias g="git"
+
+#status
+alias gs="g status -s"
+
+# branch
+alias gb="g branch"
+alias gbr="g branch -r"
+alias gba="g branch -a"
+alias gbd="g branch -d"
+
+# add
+alias ga="g add"
+alias gaa="g add ."
+alias gaaa="g add -A"
+alias gaas="g add . && g status"
+
+# commit
+alias gc="g commit"
+alias gcm="g commit -m"
+alias gca="g commit --amend"
+
+# checkout
+alias gch="g checkout"
+alias gchb="g checkout -b"
+alias gchm="g checkout master"
+alias gchd="g checkout develop"
+
+# fetch
+alias gfch="g fetch"
+alias gfchr="g fetch origin && g remote prune origin"
+
+# merge
+alias gm="g merge"
+alias gmnf="g merge --no-ff"
+
+# diff
+alias gd="g diff"
+alias gd1="g diff HEAD~"
+alias gd2="g diff HEAD~2"
+alias gd3="g diff HEAD~3"
+
+# show
+alias gsh="g show"
+
+# push
+alias gpsh="g push origin"
+
+# pull
+alias gpl="g pull origin && g rev-parse --abbrev-ref HEAD"
+alias gplr="g pull --rebase"
+
+# stash
+alias gst="g stash"
+alias gstl="g stash list"
+alias gstp="g stash pop"
+alias gstd="g stash drop"
+
+# grep
+alias gg="g ls-files | grep -i"
+function ggc() {
+  git log --all --grep="$1";
+}
+
+# log
+alias gl="g log"
+alias glg='g log --graph --oneline --decorate --all'
+alias gld='g log --pretty=format:"%h %ad %s" --date=short --all'
+
+# init
+alias gi="g init"
+
+# gcl
+alias gcl="g clone"
 
 
 # -------------------------------------
@@ -155,13 +243,12 @@ bindkey '^K' cdup
 bindkey "^R" history-incremental-search-backward
 
 # -------------------------------------
-# その他
+# Other
 # -------------------------------------
+# tree -L 1 after cd
+function chpwd() { tt }
 
-# cdしたあとで、自動的に ls する
-function chpwd() { ls -1 }
-
-# iTerm2のタブ名を変更する
+# change tab name
 function title {
     echo -ne "\033]0;"$*"\007"
 }
