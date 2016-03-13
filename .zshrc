@@ -218,6 +218,7 @@ function ggc() {
 alias gl="g log"
 alias glg='g log --graph --oneline --decorate --all'
 alias gld='g log --pretty=format:"%h %ad %s" --date=short --all'
+alias grl='g reflog'
 
 # init
 alias gi="g init"
