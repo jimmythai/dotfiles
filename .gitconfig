@@ -8,25 +8,3 @@
   name = AUTHORNAME
   email = AUTHOREMAIL
 [alias]
-  s = status
-  ss = status -s
-  b = branch
-  ba = branch -a
-  ca = commit --amend
-  cm = commit -m
-  a = add
-  ch = checkout
-  sh = show
-  alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
-  pl = log --graph --branches --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %cr%Creset'
-  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-  drag = pull --rebase
-  refresh= !git fetch origin && git remote prune origin
-  aa = !git add .  && git add -u && git status
-  d  = diff
-  d1 = diff HEAD~
-  d2 = diff HEAD~2
-  d3 = diff HEAD~3
-  dr  = "!f() { git diff "$1"^.."$1"; }; f"
-  lc  = "!f() { git ll "$1"^.."$1"; }; f"
-  f = "!git ls-files | grep -i"
