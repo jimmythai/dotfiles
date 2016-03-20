@@ -324,6 +324,10 @@ NeoBundle 'hail2u/vim-css3-syntax'
 
 call neobundle#end()
 " <C-h>, <BS>: close popup and delete backword char.
+"""""""""""""""""""""""""""""""""""""""
+" Ctrlp
+"""""""""""""""""""""""""""""""""""""""
+NeoBundle 'kien/ctrlp.vim'
 
 """""""""""""""""""""""""""""""""""""""
 " setting colorscheme
