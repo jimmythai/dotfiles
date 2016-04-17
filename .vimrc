@@ -47,10 +47,15 @@ set matchtime=3
 set wrap
 " not to wrap
 set textwidth=0
-" show invisible characters
+" set list
 set list
 " show invisible character like the bellow
-set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
+set lcs=tab:»-,trail:-,eol:¬,nbsp:%
+augroup highlightIdegraphicSpace
+  autocmd!
+  autocmd Colorscheme * highlight IdeographicSpace term=underline ctermbg=DarkGreen guibg=DarkGreen
+  autocmd VimEnter,WinEnter * match IdeographicSpace /　/
+augroup END
 " round indent to multiple of 'shiftwidth'
 set shiftround
 " when complement it doesnt matter that it's upper case or lower case
@@ -67,13 +72,20 @@ set history=10000
 " show inserted command
 set showcmd
 " font
-set guifont=Ricty_Diminished:h16
+"set guifont=Ricty_Diminished:h16
+" font for airline
+set guifont=Inconsolata_for_Powerline:h16
+" show full width character
+set ambiwidth=double
 " highlight cursored line
 set cursorline
+" to show airline
+set laststatus=2
 " go to the previous tab
 ca th tabp
 " make a new tab
 ca tn tabnew
+
 
 """""""""""""""""""""""""""""""""""""""
 " NeoBundle
@@ -143,11 +155,11 @@ NeoBundle 'nanotech/jellybeans.vim'
 """""""""""""""""""""""""""""""""""""""
 " Vim-airline
 """""""""""""""""""""""""""""""""""""""
-let g:airline_theme = 'solarized'
-let g:airline#extensions#branch#enabled = 0
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
+let g:airline_powerline_fonts = 1
 let g:airline_section_b = "%t %M"
-let g:airline_section_c = ''
-let s:sep = " %{get(g:, 'airline_right_alt_sep', '')} "
+let s:sep = " %{get(g:, 'airlin_right_alt_sep', '')} "
 let g:airline_section_x =
 \ "%{strlen(&fileformat)?&fileformat:''}".s:sep.
 \ "%{strlen(&fenc)?&fenc:&enc}".s:sep.
@@ -161,18 +173,21 @@ let g:airline#extensions#whitespace#enabled = 1
 if !exists('g:airline_symbols')
 let g:airline_symbols = {}
 endif
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+"let g:airline_symbols.linenr = '␤'
+"let g:airline_symbols.linenr = '¶'
+"let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+"let g:airline_symbols.linenr = ''
 let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
+" let g:Powerline_symbols = 'fancy'
 
 
 """""""""""""""""""""""""""""""""""""""
@@ -187,6 +202,12 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'scrooloose/nerdtree'
 let NERDTreeShowHidden=1
 
+
+"""""""""""""""""""""""""""""""""""""""
+" Vim-nerdtree-tabs
+"""""""""""""""""""""""""""""""""""""""
+NeoBundle 'jistr/vim-nerdtree-tabs'
+let g:nerdtree_tabs_open_on_console_startup = 1
 
 """""""""""""""""""""""""""""""""""""""
 " Neosnippet
@@ -304,11 +325,13 @@ let g:AutoPairsFlyMode = 0
 "  選択したテキストを囲うようにクオーテーションや括弧など追加する
 NeoBundle 'tpope/vim-surround'
 
+
 """""""""""""""""""""""""""""""""""""""
 " Nerdcommenter
 """""""""""""""""""""""""""""""""""""""
 " to comment out
 NeoBundle 'scrooloose/nerdcommenter'
+
 
 """""""""""""""""""""""""""""""""""""""
 " Html5.vim
@@ -322,10 +345,27 @@ NeoBundle 'othree/html5.vim'
 """""""""""""""""""""""""""""""""""""""
 NeoBundle 'hail2u/vim-css3-syntax'
 
+
+"""""""""""""""""""""""""""""""""""""""
+" Vim-jsx
+"""""""""""""""""""""""""""""""""""""""
+" to support jsx syntax
+" NeoBundle 'mxw/vim-jsx'
+" let g:jsx_ext_required = 0
+
+
+"""""""""""""""""""""""""""""""""""""""
+" Yet Another JavaScript Syntax
+"""""""""""""""""""""""""""""""""""""""
+" to support es6 syntax
+NeoBundle 'othree/yajs.vim'
+
+
 """""""""""""""""""""""""""""""""""""""
 " Ctrlp
 """""""""""""""""""""""""""""""""""""""
 NeoBundle 'kien/ctrlp.vim'
+
 
 call neobundle#end()
 " <C-h>, <BS>: close popup and delete backword char.
