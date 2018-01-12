@@ -253,3 +253,9 @@ function chpwd() { tt }
 function title {
     echo -ne "\033]0;"$*"\007"
 }
+
+
+# NODENV, PYENV, RBENV
+eval "$(nodenv init -)"
+eval "$(pyenv init -)"
+eval "$(rbenv init -)"

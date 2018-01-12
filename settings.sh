@@ -3,18 +3,21 @@
 # -------------------
 # Functions
 # -------------------
+template_comment() {
+    echo "====================================================================="
+    echo "$1"
+    echo "====================================================================="
+}
 tell_what_you_are_starting() {
-echo "🏃‍♂️ START $1"
+    local COMMENT="START $1"
+    say -v Samantha $COMMENT
+    template_comment "🏃‍♂️ $COMMENT"
 }
 
 tell_what_you_have_finished() {
-echo "🙆‍♂️ FINISH $1"
-}
-
-list_what_you_have_done() {
-echo "====================================================================="
-echo "$1"
-echo "====================================================================="
+    local COMMENT="FINISH $1"
+    say -v Samantha $COMMENT
+    template_comment "🙆‍♂️ $COMMENT"
 }
 
 # -------------------
@@ -33,7 +36,7 @@ brew install carthage
 brew install yarn 
 
 ## For Node, Python, Ruby
-brew install nvm pyenv
+brew install nodenv pyenv
 
 ## For iTerm2
 brew cask install iterm2 && brew install tmux tree zsh zsh-completions
@@ -41,7 +44,7 @@ brew cask install iterm2 && brew install tmux tree zsh zsh-completions
 ## Everything is installed!!
 tell_what_you_have_finished "$BREW_COMMENT"
 
-list_what_you_have_done "- brew
+template_comment "- brew
 $(brew list)
 
 - brew cask
@@ -58,7 +61,7 @@ chsh -s /bin/zsh
 
 tell_what_you_have_finished "$TERMINAL_COMMENT"
 
-list_what_you_have_done "- Change bash to zsh"
+template_comment "- Change bash to zsh"
 
 # -------------------
 # Make symbolic links
@@ -72,7 +75,7 @@ ln -sf ~/Git/jimmy/dotfiles/.zshrc ~/.zshrc
 ln -sf ~/Git/jimmy/dotfiles/ftplugin ~/.vim
 ln -sf ~/Git/jimmy/dotfiles/filetype.vim ~/.vim
 
-list_what_you_have_done "- dotfiles
+template_comment "- dotfiles
 .vimrc
 .zshrc
 .vim

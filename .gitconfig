@@ -1,5 +1,5 @@
 [core]
-  excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore_global
   attributesfile = ~/.gitattributes
   trustctime = false # Make `git rebase` safer on OS X, http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
   precomposeunicode = false # Prevent showing files whose names contain non-ASCII symbols as unversioned., http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
