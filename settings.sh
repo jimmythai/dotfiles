@@ -36,7 +36,7 @@ brew install carthage
 brew install yarn 
 
 ## For Node, Python, Ruby
-brew install nodenv pyenv
+brew install nodenv pyenv rbenv
 
 ## For iTerm2
 brew cask install iterm2 && brew install tmux tree zsh zsh-completions
