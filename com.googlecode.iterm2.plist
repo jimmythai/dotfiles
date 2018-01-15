@@ -10,6 +10,8 @@
 	<integer>1</integer>
 	<key>AppleWindowTabbingMode</key>
 	<string>manual</string>
+	<key>CopyLastNewline</key>
+	<false/>
 	<key>Default Bookmark Guid</key>
 	<string>30EC5615-DA1F-4BD9-B701-A252D107EAA3</string>
 	<key>HotkeyMigratedFromSingleToMulti</key>
@@ -19,9 +21,9 @@
 	<key>NSFontPanelAttributes</key>
 	<string>1, 0</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/Documents</string>
+	<string>~/Git/jimmy/dotfiles</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
-	<string>{712, 448}</string>
+	<string>{720, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -61,9 +63,9 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>238 364 744 138 0 0 2560 1417 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>854 843 796 473 0 0 2560 1417 </string>
+	<string>1015 411 796 473 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1682 868 585 452 0 0 2560 1417 </string>
+	<string>1456 792 1138 452 0 0 2560 1417 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -930,7 +932,7 @@
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
-			<string>No</string>
+			<string>Recycle</string>
 			<key>Default Bookmark</key>
 			<string>No</string>
 			<key>Description</key>
@@ -1506,7 +1508,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/atsushiyamamoto/Documents</string>
+	<string>/Users/atsushiyamamoto/Git/jimmy/dotfiles</string>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>

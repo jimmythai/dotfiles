@@ -18,7 +18,7 @@ brew install nodenv pyenv rbenv
 brew cask install iterm2 && brew install tmux tree zsh
 
 ## Install zsh plugins manager
-curl -L git.io/antigen > antigen.zsh
+curl -L git.io/antigen > $HOME/antigen.zsh
 
 ## Update vim
 brew install vim --with-override-system-vi
