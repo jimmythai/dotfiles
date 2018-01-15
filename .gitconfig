@@ -4,9 +4,8 @@
   trustctime = false # Make `git rebase` safer on OS X, http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/
   precomposeunicode = false # Prevent showing files whose names contain non-ASCII symbols as unversioned., http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
 [user]
-  # http://stackoverflow.com/questions/4220416/can-i-specify-multiple-users-for-myself-in-gitconfig
-  name = AUTHORNAME
-  email = AUTHOREMAIL
+  name = AUTHOR_NAME
+  email = AUTHOR_EMAIL
 [alias]
 [push]
   default = current

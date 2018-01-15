@@ -1,60 +1,51 @@
 # -------------------------------------
-# 環境変数
+# Environment variables
 # -------------------------------------
-
-# SSHで接続した先で日本語が使えるようにする
+## Enable Japanese in SSH connection established
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-# エディタ
+## Editor
 export EDITOR=/usr/local/bin/vim
-
-# ページャ
-export PAGER=/usr/local/bin/vimpager
-export MANPAGER=/usr/local/bin/vimpager
-
-
+export BIN=/bin:/usr/bin:/usr/local/bin:${BIN}
 # -------------------------------------
-# zshのオプション
+# Zsh options
 # -------------------------------------
-
-## 補完機能の強化
+## Turn on completion
 autoload -U compinit
 compinit
 
-## 入力しているコマンド名が間違っている場合にもしかして：を出す。
+## Turn on autocorrection
 setopt correct
 
-# ビープを鳴らさない
+## Turn off beep
 setopt nobeep
 
-## 色を使う
+## Substitutions within prompts do not affect the command status
 setopt prompt_subst
 
-## ^Dでログアウトしない。
+## Disable disconnecting a session with ^D
 setopt ignoreeof
 
-## バックグラウンドジョブが終了したらすぐに知らせる。
+## Notify right after finishing a background job
 setopt no_tify
 
-## 直前と同じコマンドをヒストリに追加しない
+## Do not add duplicates of the previous event to the history
 setopt hist_ignore_dups
 
-# 補完
-## タブによるファイルの順番切り替えをしない
+## Disable changing the order of files with tab
 unsetopt auto_menu
 
-# cd -[tab]で過去のディレクトリにひとっ飛びできるようにする
+## Jump to a past directory with cd -[tab]
 setopt auto_pushd
 
-# ディレクトリ名を入力するだけでcdできるようにする
+## Perform the cd command with just a directory name
 setopt auto_cd
 
 # -------------------------------------
-# パス
+# Path
 # -------------------------------------
-
-# 重複する要素を自動的に削除
+## Delete the duplicates automatically
 typeset -U path cdpath fpath manpath
 
 path=(
@@ -65,9 +56,8 @@ path=(
 )
 
 # -------------------------------------
-# プロンプト
+# Prompt
 # -------------------------------------
-
 autoload -U promptinit; promptinit
 autoload -Uz colors; colors
 autoload -Uz vcs_info
@@ -112,10 +102,10 @@ RPROMPT="[%*]"
 # ----------------------
 # Command line Aliases
 # ----------------------
-# -n [show line number], -I [ignore binary files and ignore svn relation]
+## -n [show line number], -I [ignore binary files and ignore svn relation]
 alias grep="grep --color -n -I --exclude='*.svn-*' --exclude='entries' --exclude='*/cache/*'"
 
-# ls
+## ls
 alias ls="ls -G" # color for darwin
 alias l="ls -la"
 alias la="ls -la"
@@ -124,19 +114,19 @@ alias l1="ls -1"
 # ----------------------
 # Tree Aliases
 # ----------------------
-# -N [prevent from garbage characters and color files]
+## -N [prevent from garbage characters and color files]
 alias t="tree -NC"
 
-# show files in a level
+## show files in a level
 alias tl="t -L"
 
-# show dotfiles
+## show dotfiles
 alias ta="t -a"
 
-# show relative paths
+## show relative paths
 alias tp="t -f"
 
-# show file size
+## show file size
 alias ts="t -h"
 
 alias tla="ta -L"
@@ -149,88 +139,87 @@ alias tta="tla 1"
 # ----------------------
 # Git Aliases
 # ----------------------
-# git
+## git
 alias g="git"
 
 #status
 alias gs="g status -s"
 
-# branch
+## branch
 alias gb="g branch"
 alias gbr="g branch -r"
 alias gba="g branch -a"
 alias gbd="g branch -d"
 
-# add
+## add
 alias ga="g add"
 alias gaa="g add ."
 alias gaaa="g add -A"
 alias gaas="g add . && g status"
 
-# commit
+## commit
 alias gc="g commit"
 alias gcm="g commit -m"
 alias gca="g commit --amend"
 
-# checkout
+## checkout
 alias gch="g checkout"
 alias gchb="g checkout -b"
 alias gchm="g checkout master"
 alias gchd="g checkout develop"
 
-# fetch
+## fetch
 alias gfch="g fetch"
 alias gfchr="g fetch origin && g remote prune origin"
 
-# merge
+## merge
 alias gm="g merge"
 alias gmnf="g merge --no-ff"
 
-# diff
+## diff
 alias gd="g diff"
 alias gd1="g diff HEAD~"
 alias gd2="g diff HEAD~2"
 alias gd3="g diff HEAD~3"
 
-# show
+## show
 alias gsh="g show"
 
-# push
+## push
 alias gpsh="g push origin"
 
-# pull
+## pull
 alias gpl="g pull origin && g rev-parse --abbrev-ref HEAD"
 alias gplr="g pull --rebase"
 
-# stash
+## stash
 alias gst="g stash"
 alias gstl="g stash list"
 alias gstp="g stash pop"
 alias gstd="g stash drop"
 
-# grep
+## grep
 alias gg="g ls-files | grep -i"
 function ggc() {
   git log --all --grep="$1";
 }
 
-# log
+## log
 alias gl="g log"
 alias glg='g log --graph --oneline --decorate --all'
 alias gld='g log --pretty=format:"%h %ad %s" --date=short --all'
 alias grl='g reflog'
 
-# init
+## init
 alias gi="g init"
 
-# gcl
+## gcl
 alias gcl="g clone"
 
 
 # -------------------------------------
-# キーバインド
+# Key bindings
 # -------------------------------------
-
 bindkey -e
 
 function cdup() {
@@ -246,16 +235,29 @@ bindkey "^R" history-incremental-search-backward
 # -------------------------------------
 # Other
 # -------------------------------------
-# tree -L 1 after cd
+## Tree -L 1 after cd
 function chpwd() { tt }
 
-# change tab name
+## Change tab name
 function title {
     echo -ne "\033]0;"$*"\007"
 }
 
-
-# NODENV, PYENV, RBENV
+## Initialize nodenv, pyenv, rbenv
 eval "$(nodenv init -)"
 eval "$(pyenv init -)"
 eval "$(rbenv init -)"
+
+# --------------------------------------
+# Antigen
+# --------------------------------------
+## Install antigen
+source $HOME/antigen.zsh
+
+## Install Powerlevel9k
+POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
+antigen theme bhilburn/powerlevel9k powerlevel9k
+antigen apply
+
+## Install bundles
+antigen bundle zsh-users/zsh-completions
