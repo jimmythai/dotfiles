@@ -20,6 +20,9 @@ brew cask install iterm2 && brew install tmux tree zsh
 ## Install zsh plugins manager
 curl -L git.io/antigen > antigen.zsh
 
+## Update vim
+brew install vim --with-override-system-vi
+
 ## Install powerline fonts
 git clone https://github.com/powerline/fonts.git --depth=1
 ./fonts/install.sh
