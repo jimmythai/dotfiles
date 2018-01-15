@@ -8,6 +8,8 @@ export LC_ALL=en_US.UTF-8
 ## Editor
 export EDITOR=/usr/local/bin/vim
 export BIN=/bin:/usr/bin:/usr/local/bin:${BIN}
+# export VSCODE="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
 # -------------------------------------
 # Zsh options
 # -------------------------------------
@@ -243,6 +245,18 @@ function title {
     echo -ne "\033]0;"$*"\007"
 }
 
+## Run VSCode
+function code {
+    if [[ $# = 0 ]]
+    then
+        open -a "Visual Studio Code"
+    else
+        local argPath="$1"
+        [[ $1 = /* ]] && argPath="$1" || argPath="$PWD/${1#./}"
+        open -a "Visual Studio Code" "$argPath"
+    fi
+}
+
 ## Initialize nodenv, pyenv, rbenv
 eval "$(nodenv init -)"
 eval "$(pyenv init -)"
@@ -257,7 +271,10 @@ source $HOME/antigen.zsh
 ## Install Powerlevel9k
 POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
 antigen theme bhilburn/powerlevel9k powerlevel9k
-antigen apply
 
 ## Install bundles
 antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+antigen apply
+
