@@ -1,4 +1,6 @@
 #!/bin/sh
+read -p "Path to the dotfiles directory(e.g. $HOME/fizz/buzz): " PATH_TO_DOTFILES
+
 # --------------------------------------
 # Install plugins, frameworks, etc...
 # --------------------------------------
@@ -38,7 +40,5 @@ chsh -s /bin/zsh
 # Make symbolic links
 # --------------------------------------
 ## To make symbolic links
-ln -sf ~/Git/jimmy/dotfiles/.vimrc ~/.vimrc
-ln -sf ~/Git/jimmy/dotfiles/.zshrc ~/.zshrc
-ln -sf ~/Git/jimmy/dotfiles/ftplugin ~/.vim
-ln -sf ~/Git/jimmy/dotfiles/filetype.vim ~/.vim
+ln -sf $PATH_TO_DOTFILES/dotfiles/.vimrc ~/.vimrc
+ln -sf $PATH_TO_DOTFILES/dotfiles/.zshrc ~/.zshrc

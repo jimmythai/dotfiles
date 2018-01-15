@@ -11,7 +11,7 @@ sh settings.sh
 ## iTerm2
 
 Preferences > General > Preferences > Load preferences from a custom folder or URL:
-`/Users/atsushiyamamoto/Git/jimmy/dotfiles`
+`/PATH_TO_DOTFILES/dotfiles`
 
 ## VS Code
 
