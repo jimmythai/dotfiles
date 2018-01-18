@@ -42,3 +42,5 @@ chsh -s /bin/zsh
 ## To make symbolic links
 ln -sf $PATH_TO_DOTFILES/dotfiles/.vimrc ~/.vimrc
 ln -sf $PATH_TO_DOTFILES/dotfiles/.zshrc ~/.zshrc
+ln -sf $PATH_TO_DOTFILES/dotfiles/.gitconfig ~/.gitconfig
+ln -sf $PATH_TO_DOTFILES/dotfiles/.gitignore_global ~/.gitignore_global
