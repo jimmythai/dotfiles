@@ -163,6 +163,7 @@ alias gaas="g add . && g status"
 alias gc="g commit"
 alias gcm="g commit -m"
 alias gca="g commit --amend"
+alias gce="g commit --allow-empty -m"
 
 ## checkout
 alias gch="g checkout"
