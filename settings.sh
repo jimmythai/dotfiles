@@ -8,7 +8,8 @@ read -p "Path to the dotfiles directory(e.g. $HOME/fizz/buzz): " PATH_TO_DOTFILE
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 ## Install app package managers
-brew install carthage cocoapods
+brew install cocoapods
+brew install carthage
 
 ## Install front-end package managers
 brew install yarn
