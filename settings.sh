@@ -1,11 +1,12 @@
 #!/bin/sh
-read -p "Path to the dotfiles directory(e.g. $HOME/fizz/buzz): " PATH_TO_DOTFILES
+
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
 # --------------------------------------
 # Install plugins, frameworks, etc...
 # --------------------------------------
 ## Install brew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 ## Install app package managers
 brew install cocoapods
@@ -24,7 +25,7 @@ brew cask install iterm2 && brew install tmux tree zsh
 curl -L git.io/antigen > $HOME/antigen.zsh
 
 ## Update vim
-brew install vim --with-override-system-vi
+# brew install vim --with-override-system-vi
 
 ## Install powerline fonts
 git clone https://github.com/powerline/fonts.git --depth=1
@@ -41,7 +42,7 @@ chsh -s /bin/zsh
 # Make symbolic links
 # --------------------------------------
 ## To make symbolic links
-ln -sf $PATH_TO_DOTFILES/dotfiles/.vimrc ~/.vimrc
-ln -sf $PATH_TO_DOTFILES/dotfiles/.zshrc ~/.zshrc
-ln -sf $PATH_TO_DOTFILES/dotfiles/.gitconfig ~/.gitconfig
-ln -sf $PATH_TO_DOTFILES/dotfiles/.gitignore_global ~/.gitignore_global
+# ln -sf $SCRIPT_DIR/dotfiles/.vimrc ~/.vimrc
+ln -sf $SCRIPT_DIR/.zshrc ~/.zshrc
+ln -sf $SCRIPT_DIR/.gitconfig ~/.gitconfig
+ln -sf $SCRIPT_DIR/.gitignore_global ~/.gitignore_global
