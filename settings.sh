@@ -9,8 +9,7 @@ SCRIPT_DIR=$(cd $(dirname $0); pwd)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 ## Install app package managers
-brew install cocoapods
-brew install carthage
+brew install --cask cocoapods && brew install carthage
 
 ## Install front-end package managers
 brew install yarn
@@ -19,7 +18,7 @@ brew install yarn
 brew install nodenv pyenv rbenv
 
 ## Install iTerm2, zsh and zsh-related packages
-brew cask install iterm2 && brew install tmux tree zsh
+brew install --cask iterm2 && brew install tmux tree
 
 ## Install zsh plugins manager
 curl -L git.io/antigen > $HOME/antigen.zsh
