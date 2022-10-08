@@ -1,5 +1,5 @@
 #!/bin/sh
-read -p "Path to the dotfiles directory(e.g. $HOME/fizz/buzz): " PATH_TO_DOTFILES
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
 # --------------------------------------
 # Install plugins, frameworks, etc...
@@ -43,12 +43,6 @@ chsh -s /bin/zsh
 # Make symbolic links
 # --------------------------------------
 ## To make symbolic links
-ln -sf $PATH_TO_DOTFILES/dotfiles/.vimrc ~/.vimrc
-ln -sf $PATH_TO_DOTFILES/dotfiles/.zshrc ~/.zshrc
-ln -sf $PATH_TO_DOTFILES/dotfiles/.gitconfig ~/.gitconfig
-ln -sf $PATH_TO_DOTFILES/dotfiles/.gitignore_global ~/.gitignore_global
-
-# --------------------------------------
-# Open applications
-# --------------------------------------
-open /opt/homebrew/Caskroom/iterm2/*/iTerm.app
+ln -sf $SCRIPT_DIR/.zshrc ~/.zshrc
+ln -sf $SCRIPT_DIR/.gitconfig ~/.gitconfig
+ln -sf $SCRIPT_DIR/.gitignore_global ~/.gitignore_global

@@ -8,7 +8,7 @@ export LC_ALL=en_US.UTF-8
 ## Editor
 export EDITOR=/opt/homebrew/bin/vim
 
-## Home brew
+## Homebrew
 export PATH=/opt/homebrew/bin:$PATH
 
 # -------------------------------------
