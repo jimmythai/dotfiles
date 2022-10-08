@@ -6,9 +6,10 @@ export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 ## Editor
-export EDITOR=/usr/local/bin/vim
-export BIN=/bin:/usr/bin:/usr/local/bin:${BIN}
-# export VSCODE="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export EDITOR=/opt/homebrew/bin/vim
+
+## Home brew
+export PATH=/opt/homebrew/bin:$PATH
 
 # -------------------------------------
 # Zsh options
@@ -52,8 +53,8 @@ typeset -U path cdpath fpath manpath
 
 path=(
     $HOME/bin(N-/)
-    /usr/local/bin(N-/)
-    /usr/local/sbin(N-/)
+    /usr/bin(N-/)
+    /usr/sbin(N-/)
     $path
 )
 
